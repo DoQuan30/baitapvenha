@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="m1()">Đo sức khoẻ</button>
+    <p><h1 id="result"></h1></p>
+  </body>
+  <script>
+    function m1() {
+      var weight = +prompt("Nhập cân nặng (Kg) ");
+      var height = +prompt("Nhập chiều cao (m)");
+      var BMI = weight / (height * height);
+      var health;
+      var result =document.getElementById("result");
+      if (BMI < 16) {
+        health = "gầy cấp độ III";
+      } else if (BMI >= 16 && BMI < 17) {
+        health = "gầy cấp độ II";
+      } else if (BMI >= 17 && BMI < 18.5) {
+        health = "gầy cấp độ I";
+      } else if (BMI >= 18.5 && BMI < 25) {
+        health = "bình thường";
+      } else if (BMI >= 25 && BMI < 30) {
+        health = "thừa cân";
+      } else if (BMI >= 30 && BMI < 35) {
+        health = "béo phì độ I";
+      } else if (BMI >= 35 && BMI < 40) {
+        health = "béo phì độ II";
+      } else if (BMI > 40) {
+        health = "béo phì độ III";
+      }
+      
+      result.textContent = health;
+    }
+  </script>
+</html>

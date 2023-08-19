@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table {
+        width: 50%;
+      }
+      th,
+      td {
+        text-align: center;
+      }
+      #result {
+        text-align: left;
+        color: blue;
+      }
+      #Convert {
+        border-style: groove;
+        background-color: blue;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <table>
+        <tr>
+          <th>Amount</th>
+          <th>From Currency</th>
+          <th>To Currency</th>
+        </tr>
+        <tr>
+          <td>
+            <input type="number" id="money" />
+          </td>
+          <td>
+            <select name="FromCurrency" id="mySelect1">
+              <option value="VND">VietNam</option>
+              <option value="USD">USD</option>
+            </select>
+          </td>
+          <td>
+            <select name="ToCurrency" id="mySelect2">
+              <option value="USD">USD</option>
+              <option value="VND">VietNam</option>
+            </select>
+          </td>
+          <td>
+            <button type="button" onclick="m1()" id="Convert">Convert</button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3" id="result"></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+  <script>
+    function m1() {
+      var tien = +document.getElementById("money").value;
+      var SelectedValue1 = document.getElementById("mySelect1").value;
+      var SelectedValue2 = document.getElementById("mySelect2").value;
+      var resultElement = document.getElementById("result");
+    
+      if (SelectedValue1 == "VND" && SelectedValue2 == "USD") {
+        var multipliedValue1 = tien * 0.000042;
+        resultElement.textContent = "Kết quả: " + multipliedValue1 + " USD";
+        // document.getElementById("result").innerHTML = "Result: " + multipliedValue1;
+        // viết như này không ra
+      } else if (SelectedValue1 == "USD" && SelectedValue2 == "VND") {
+        var multipliedValue2 = tien * 23.82;
+        resultElement.textContent = "Kết quả: " + multipliedValue2 + " VND";
+      }
+    }
+  </script>
+</html>

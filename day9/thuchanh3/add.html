@@ -6,13 +6,46 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <label for="fruitName">Tên hoa quả:</label>
+<input type="text" id="fruitName" />
+<button onclick="showPrice()">Xem giá</button>
+<div id="priceResult"></div>
+
 </body>
 <script>
-    let a = prompt ("Nhập vào biến a");
-    let b = prompt ("Nhập vào biến b");
-    result =( a + b < 4 ) ? 'below' :'over';
-    alert(result);
+    function showPrice() {
+  var fruitName = document.getElementById("fruitName").value;
+  var priceResult = document.getElementById("priceResult");
+
+  var pricePerKg;
+
+  switch (fruitName) {
+    case "Ổi":
+    case "Dưa Hấu":
+      pricePerKg = 20000;
+      break;
+    case "Táo":
+    case "Xoài":
+      pricePerKg = 30000;
+      break;
+    case "Cam":
+    case "Chôm Chôm":
+      pricePerKg = 40000;
+      break;
+    case "Măng Cụt":
+      pricePerKg = 50000;
+      break;
+    default:
+      pricePerKg = null;
+      break;
+  }
+
+  if (pricePerKg !== null) {
+    priceResult.textContent = "Giá của " + fruitName + " là " + pricePerKg + " VNĐ/kg.";
+  } else {
+    priceResult.textContent = "Không tìm thấy giá cho hoa quả " + fruitName + ".";
+  }
+}
 
 </script>
 </html>
