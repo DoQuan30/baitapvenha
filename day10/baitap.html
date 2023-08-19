@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Tính điểm ĐH khối D</h1>
+    <form action="">
+      <table>
+        <tr>
+          <td>Môn toán</td>
+          <td><input type="number" id="math" /></td>
+        </tr>
+        <tr>
+          <td>Môn văn</td>
+          <td><input type="number" id="literature" /></td>
+        </tr>
+        <tr>
+          <td>Môn anh</td>
+          <td><input type="number" id="english" /></td>
+        </tr>
+        <tr>
+          <td>Khu vực</td>
+          <td>
+            <select name="area" id="area">
+              <option value="0.75">KV1</option>
+              <option value="0.5">KV2</option>
+              <option value="0.25">KV2-NT</option>
+              <option value="0">KV3</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><button onclick="m1()" type="button">Tính điểm</button></td>
+        </tr>
+      </table>
+      <p id="result"></p>
+    </form>
+  </body>
+  <script>
+    function m1() {
+        var math = +document.getElementById("math").value;
+        var literature = +document.getElementById("literature").value;
+        var english = +document.getElementById("english").value;
+        var area = +document.getElementById("area").value;
+        var total
+        if (math < 0 || math > 10 ||literature < 0 || literature > 10 ||english < 0 || english > 10 ){
+            alert("Nhập sai, nhập lại");
+        }else {
+            total = math + literature + english + area ;
+            document.getElementById("result").innerHTML = "Điểm đại học là: " + total; 
+        }
+
+    }
+  </script>
+</html>
