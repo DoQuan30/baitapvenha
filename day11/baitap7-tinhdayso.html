@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let num1 = +prompt("Nhập số nhỏ")
+    let num2 = +prompt("Nhập số lớn")
+    let sum = 0
+    
+    // dùng công thức toán học
+    console.log(((num1 + num2) * (num2 - num1 + 1)) / 2)
+
+    // dùng lặp
+    while(num1 <= num2) {
+        sum += num1
+        num1++
+    }
+    console.log(sum)
+
+
+</script>
+</html>

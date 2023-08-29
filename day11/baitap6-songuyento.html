@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // cách 1: đếm ước
+    // nếu tổng số ước lớn hớn 2 thì là không phải SNT
+
+    let count1 = 1
+    let number = 2
+    while(count1 <= 20) {
+        let soUoc = 0
+        for(let i = 1; i <= number; i++) {
+            if (number % i == 0) {
+                soUoc++
+            }
+            
+            if (soUoc === 3) {
+                break
+            }
+        }
+        if (soUoc === 2) {
+            console.log(number)
+            count1++
+        }
+        number++
+    }
+    console.log("-----------------------")
+
+    // cách 2: chia từ 2 -> n - 1
+    // nếu chia hết thì break và không phải là SNT
+
+    let count2 = 1
+    let number2 = 2
+    while(count2 <= 20) {
+        let flag = true
+        for (let i = 2; i < number2; i++) {
+            if (number2 % i == 0) {
+                flag = false
+                break
+            }
+        }
+        if (flag === true) {
+            console.log(number2)
+            count2++
+        }
+        number2++
+    }
+</script>
+</html>

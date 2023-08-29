@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // tam giac vuông dưới phải
+    let data = ""
+    for(let i = 1; i <= 5; i++) {
+        for(let j = 5 - i; j >= 0; j--) {
+            data += "&ensp;"
+            // đây được gọi là HTML Entity
+            // cho phép vẽ/viết 1 số ký tự đặc biệt trong HTML mà không có thể hiện cụ thể bằng phím
+            // đồng thời có thể vẽ khoảng trắng trong HTML
+        }
+        for(let k = 1; k <= i; k++) {
+            data += "*"
+        }
+        data += "<br>"
+    }
+    document.write(data)
+    document.write("----------<br>")
+
+    // tam giac vuông dưới trái
+    let data1 = ""
+    for(let i = 1; i <= 5; i++) { 
+        for(let k = 1; k <= i; k++) {
+            data1 += "&ensp;"
+        }
+        for(let j = 5 - i; j >= 0; j--) {
+            data1 += "*"
+            // đây được gọi là HTML Entity
+            // cho phép vẽ/viết 1 số ký tự đặc biệt trong HTML mà không có thể hiện cụ thể bằng phím
+            // đồng thời có thể vẽ khoảng trắng trong HTML
+        }
+        data1 += "<br>"
+    }
+    document.write(data1)
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="m1()">Chơi</button>
+  </body>
+  <script>
+    function m1() {
+      let number1 = +prompt("Nhập số thứ nhất bạn đoán : ");
+      let number2 = +prompt("Nhập số thứ hai bạn đoán : ");
+      let result;
+      if (number1 == number2) {
+        result = number1;
+      } else if (number1 < number2) {
+        result = number1 + parseInt(math.random() * (number2 - number1));
+      } else {
+        result = number2 + parseInt(math.random() * (number1 - number2));
+      }
+      let count = 2;
+      let guest = +prompt("Nhập số bạn đoán : ");
+      while (count >= 0) {
+        if ((guest = result)) {
+          alert("Bạn đoán đúng");
+          break
+        } else if (guest > result) {
+          alert("bạn đoán lớn quá, số lần đoán còn : "+ count);
+        } else {
+          alert("bạn đoán nhỏ quá, số lần đoán còn : "+ count);
+        }
+        count--;
+      }
+    }
+  </script>
+</html>
