@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border: 1px solid;
+            width: 300px;
+            height: 400px;
+            text-align: center;
+        }
+
+        input {
+            width: 40px;
+            height: 40px;
+        }
+
+        #display {
+            width: 270px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="4"><input type="text" id="display"></td>
+
+        </tr>
+        <tr>
+            <td><input type="button" value="1" onclick="changeDisplay(this.value)"></td>
+            <td><input type="button" value="2" onclick="changeDisplay(this.value)"></td>
+            <td><input type="button" value="3" onclick="changeDisplay(this.value)"></td>
+            <td><input type="button" value="+" onclick="changeDisplay(this.value)"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4" onclick="changeDisplay(this.value)"></td>
+            <td><input type="button" value="5" onclick="changeDisplay(this.value)"></td>
+            <td><input type="button" value="6" onclick="changeDisplay(this.value)"></td>
+            <td><input type="button" value="-" onclick="changeDisplay(this.value)"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="7" onclick="changeDisplay(this.value)"></td>
+            <td><input type="button" value="8" onclick="changeDisplay(this.value)"></td>
+            <td><input type="button" value="9" onclick="changeDisplay(this.value)"></td>
+            <td><input type="button" value="x" onclick="changeDisplay(this.value)"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="C" onclick="reset()"></td>
+            <td><input type="button" value="0" onclick="changeDisplay(this.value)"></td>
+            <td><input type="button" value="=" onclick="calculator()"></td>
+            <td><input type="button" value="/" onclick="changeDisplay(this.value)"></td>
+        </tr>
+    </table>
+</body>
+<script>
+    function changeDisplay(value) {
+        document.getElementById("display").value += value
+    }
+
+    function calculator() {
+        let result = document.getElementById("display").value
+        result = eval(result)
+        // hàm eval(): trả về kết quả tính toán của 1 biểu thức dạng text
+        // với điều kiện, biểu thức đó được viết đúng
+        document.getElementById("display").value = result
+    }
+
+    function reset() {
+        document.getElementById("display").value = ""
+    }
+</script>
+</html>1
