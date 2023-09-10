@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    let number1 = 1;
+    let number2 = 1;
+    let count = 1;
+    while (count <= 20) {
+      console.log("số fibanaci thứ: " + count + " là " + number1);
+      let result = number1 + number2;
+      number1 = number2;
+      number2 = result;
+      count++;
+    }
+  </script>
+</html>
