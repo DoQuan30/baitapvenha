@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="displayPrimeFirst()">Display</button>
+    <button onclick="totalPrime()">Total</button>
+    <button onclick="findPrimeLessThanNumber()">LessThan</button>
+  </body>
+  <script>
+    // hiển thị 1 số lượng SNT đầu tiên do người dùng nhập
+    // tính tổng 1 số lượng các SNT do người dung nhập
+    // xác định SNT lớn nhất nhỏ hơn 1 số bất kỳ do người dùng nhập
+    function isPrime(N) {
+      if (N < 2) {
+        return false;
+      } else {
+        for (let i = 2; i < N; i++) {
+          if (N % i === 0) {
+            return false;
+          }
+        }
+      }
+      return true;
+    }
+
+    function displayPrimeFirst() {
+      let N = +prompt("Nhập vào số lượng SNT muốn hiển thị: ");
+      let number = 2;
+      let count = 1;
+      while (count <= N) {
+        let check = isPrime(number);
+        if (check) {
+          count++;
+          console.log(number);
+        }
+        number++;
+      }
+    }
+
+    function totalPrime() {
+      let N = +prompt("Nhập vào số lượng SNT muốn tính tổng: ");
+      let number = 2;
+      let count = 1;
+      let total = 0;
+      while (count <= N) {
+        let check = isPrime(number);
+        if (check) {
+          count++;
+          total += number;
+        }
+        number++;
+      }
+      console.log("Tổng các SNT cần tính là: " + total);
+    }
+
+    function findPrimeLessThanNumber() {
+      let N = +prompt("Nhập vào số giới hạn tính: ");
+      let temp = N
+      while (N > 2) {
+        let check = isPrime(N);
+        if (check) {
+          console.log("SNT lớn nhất nhỏ hơn " + temp + " là: " + N);
+          break;
+        }
+        N--;
+      }
+    }
+  </script>
+</html>

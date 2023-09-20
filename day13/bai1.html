@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="m3()">Click3</button>
+  </body>
+  <script>
+    // phần 1
+    let arr = ["Red", "Green", "White", "Black"];
+    console.log(arr);
+    console.log(arr.join(","));
+
+    // phần 2
+    // let str = prompt("Nhập số bất kỳ: ");
+    let arr1 = str.split("");
+    // hàm split(): tách chuỗi thành 1 mảng ký tự
+    for (let i = 0; i < arr1.length; i++) {
+      if (arr1[i] % 2 === 0 && arr1[i + 1] % 2 === 0) {
+        arr1.splice(i + 1, 0, "-");
+      }
+    }
+    console.log(arr1.join(""));
+
+    // phần 3
+    function m3() {
+      let str1 = prompt("Nhập chuỗi: ");
+      console.log(str1);
+      let arr2 = str1.split("");
+      for (let i = 0; i < arr2.length; i++) {
+        if (arr2[i] === arr2[i].toLowerCase()) {
+            // hàm toLowerCase(): chuyển thành chữ thường
+            // hàm toUpperCase(): chuyển thành chữ hoa
+          arr2[i] = arr2[i].toUpperCase();
+        } else {
+          arr2[i] = arr2[i].toLowerCase();
+        }
+      }
+      console.log(arr2.join(""));
+    }
+  </script>
+</html>

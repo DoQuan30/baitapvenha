@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    var mangSoNguyen = [5, 12, 3, 8, 15, 9, 10, 11, 20, 7];
+
+    var V = parseInt(prompt("Nhập số V:"));
+
+    var index = mangSoNguyen.indexOf(V);
+
+    if (index !== -1) {
+      for (var i = index; i < mangSoNguyen.length - 1; i++) {
+        mangSoNguyen[i] = mangSoNguyen[i + 1];
+      }
+      mangSoNguyen[mangSoNguyen.length - 1] = 0;
+      console.log("Đã xoá " + V + " khỏi mảng.");
+    } else {
+      console.log(V + " không thuộc mảng.");
+    }
+
+    console.log("Mảng sau khi xoá: " + mangSoNguyen);
+    
+  </script>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, tr, td {
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+
+        td {
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Caro Game Simple</h1>
+    <div id="result"></div>
+    <br>
+    <button onclick="drawBoardGame1()">Display Board Game</button>
+    <button onclick="drawBoardGame2()">Display Table Game</button>
+    <button>Change Value</button>
+</body>
+<script>
+    function drawBoardGame1() {
+        let row = +prompt("Nhập vào số hàng bạn muốn: ")
+        let col = +prompt("Nhập vào số cột bạn muốn: ")
+
+        let arr1 = new Array(row)
+        for(let i = 0; i < arr1.length; i++) {
+            arr1[i] = new Array(col)
+            for(let j = 0; j < arr1[i].length; j++) {
+                arr1[i][j] = 0
+            }
+        }
+
+        let data = ""
+        for(let i = 0; i < arr1.length; i++) {
+            for(let j = 0; j < arr1[i].length; j++) {
+                data += (arr1[i][j] + "&ensp;")
+            }
+            data += "<br>"
+        }
+        document.getElementById("result").innerHTML = data
+    }
+
+    function drawBoardGame2() {
+        let row = +prompt("Nhập vào số hàng bạn muốn: ")
+        let col = +prompt("Nhập vào số cột bạn muốn: ")
+        
+        let arr1 = new Array(row)
+        for(let i = 0; i < arr1.length; i++) {
+            arr1[i] = new Array(col)
+            for(let j = 0; j < arr1[i].length; j++) {
+                arr1[i][j] = 0
+            }
+        }
+
+        let data = "<table>"
+        for(let i = 0; i < arr1.length; i++) {
+            data += "<tr>"
+            for(let j = 0; j < arr1[i].length; j++) {
+                data += "<td>"
+            }
+            data += "</tr>"
+        }
+        data += "</table>"
+        document.getElementById("result").innerHTML = data
+    }
+</script>
+</html>

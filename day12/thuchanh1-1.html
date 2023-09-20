@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+   // Khởi tạo biến tổng
+let total = 0;
+
+// Hàm để nhập giá trị từ người dùng và tính tổng
+function calculateTotal() {
+  let input = prompt("Nhập một số (hoặc -1 để kết thúc):");
+  let num = parseInt(input);
+
+  // Kiểm tra nếu người dùng nhập -1 thì kết thúc
+  if (num === -1) {
+    return;
+  }
+
+  // Kiểm tra nếu người dùng đã nhập một số hợp lệ
+  if (!isNaN(num)) {
+    total += num;
+    calculateTotal(); // Gọi lại hàm để nhập giá trị tiếp theo
+  } else {
+    alert("Vui lòng nhập một số nguyên.");
+    calculateTotal(); // Gọi lại hàm để nhập lại giá trị
+  }
+}
+
+// Gọi hàm để bắt đầu nhập và tính tổng
+calculateTotal();
+
+// In tổng các giá trị đã nhập
+alert(`Tổng các giá trị đã nhập là: ${total}`);
+
+  </script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="number" id="input" />
+    <button onclick="getValue()">Add</button>
+    <button onclick="display()">Display</button>
+    <div style="width: 300px">
+      <hr />
+    </div>
+
+    <div id="result"></div>
+  </body>
+  <script>
+    let arr = [];
+
+    function getValue() {
+      let value = document.getElementById("input").value;
+      arr.push(value);
+      document.getElementById("input").value = "";
+      alert("Thêm thành công!");
+    }
+
+    function display() {
+     arr.sort(function(a, b){
+        return b-a
+     })
+      document.getElementById("result").innerHTML = arr;
+    }
+  </script>
+</html>

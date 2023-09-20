@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    function footToMeter(foot) {
+      var meter = foot * 0.3048;
+      return meter;
+    }
+
+    function meterToFoot(meter) {
+      var foot = meter * 3.28084;
+      return foot;
+    }
+
+    var input = prompt("Nhập giá trị muốn chuyển đổi (feet hoặc meters):");
+    var inputValue = parseFloat(prompt("Nhập giá trị số:"));
+
+    if (input === "feet") {
+      var meters = footToMeter(inputValue);
+      console.log(inputValue + " bằng " + meters);
+    } else if (input === "meters") {
+      var feet = meterToFoot(inputValue);
+      console.log(inputValue + " bằng " + feet);
+    } else {
+      console.log("Đơn vị không hợp lệ. Sử dụng 'feet' hoặc 'meters'.");
+    }
+  </script>
+</html>
