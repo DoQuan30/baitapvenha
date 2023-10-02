@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="display()">FindStar</button>
+</body>
+<script>
+    let arr1 = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe" , "Regulus"]
+    let arr2 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major" , "Leo"]
+
+    function display() {
+        let findWord = prompt('Nhập tên chòm sao muốn tìm: ')
+        let result = findStar(findWord)
+        alert(result)
+    }
+
+    function findStar(str) {
+        for(let i = 0; i < arr1.length; i++) {
+            if (arr1[i] === str) {
+                return arr2[i]
+            }
+        }
+        return "Không tìm thấy"
+    }
+</script>
+</html>

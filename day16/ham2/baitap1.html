@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function isPalimdrome() {
+        let str = prompt("Nhập chuỗi bất kỳ: ")
+        let arr = str.split("")
+        let check = true
+        for(let i = 0; i < arr.length / 2; i++) {
+            if (arr[i] === arr[arr.length - 1 - i]) {
+                continue
+            } else {
+                check = false
+                break
+            }
+        }
+        if (check) {
+            alert(str + " là chuỗi Palimdrome!")
+        } else {
+            alert(str + " không là chuỗi Palimdrome!")
+        }
+    }
+
+    isPalimdrome()
+</script>
+</html>

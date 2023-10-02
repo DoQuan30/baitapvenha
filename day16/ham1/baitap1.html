@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="value"><br>
+    <p id="result"></p>
+    <button onclick="displayMeter()">FeetToMeter</button>
+    <button onclick="displayFeet()">MeterToFeet</button>
+</body>
+<script>
+    function displayMeter() {
+        let foot = document.getElementById("value").value 
+        feetToMeter(foot)
+    }
+
+    function feetToMeter(foot) {
+        let meter = 0.305 * foot
+        document.getElementById("result").innerHTML = meter
+    }
+    
+    function displayFeet() {
+        let meter = document.getElementById("value").value 
+        meterToFeet(meter)
+    }
+
+    function meterToFeet(meter) {
+        let foot = 3.279 * meter
+        document.getElementById("result").innerHTML = foot
+    }
+</script>
+</html>

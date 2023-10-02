@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function calculatorCircle() {
+        let radius = +prompt("Nhập bán kính: ")
+        let area = Math.pow(radius, 2) * Math.PI
+        let peri = 2 * radius * Math.PI
+        alert("Diện tích hình tròn là: " + area.toFixed(2) + "\nChu vi hình tròn là: " + peri.toFixed(2))
+        // hàm toFixed(): trả về số chữ số thập phân theo mong muốn, với cách làm tròn của toán học
+    }
+
+    calculatorCircle()
+</script>
+</html>
