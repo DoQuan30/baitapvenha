@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas
+      id="canvas"
+      width="1000px"
+      height="650px"
+      style="border: 1px solid"
+    ></canvas>
+    <button onclick="drawRect(50,50)">Click</button>
+    <button onclick="up()">Up</button>
+    <button onclick="down()">Down</button>
+    <button onclick="run()">Run</button>
+    <button onclick="stop()">Stop</button>
+  </body>
+  <script>
+    let x = 50;
+    let y = 50;
+    let j = 100
+    let k = 50
+    let speed1 = 1
+    let speed2 = 3
+
+    function drawRect(a, b, c, d) {
+      let ctx = document.getElementById("canvas");
+      let ctxDraw = ctx.getContext("2d");
+      ctxDraw.clearRect(0, 0, 1000, 650);
+      ctxDraw.fillStyle = "blue";
+      ctxDraw.fillRect(a, b, 30, 30);
+      ctxDraw.fillStyle = "red";
+      ctxDraw.fillRect(c, d, 30, 30);
+    }
+
+    function move() {
+      if (y > 620 || y < 20) {
+        speed1 = -speed1;
+      }
+      if (k > 620 || k < 20) {
+        speed2 = -speed2;
+      }
+      y = y + speed1;
+      k = k + speed2;
+      drawRect(x, y, j, k);
+    }
+
+    let inter
+
+    function run() {
+      inter = setInterval(move, 1);
+    }
+
+    function stop() {
+        clearInterval(inter)
+    }
+  </script>
+</html>

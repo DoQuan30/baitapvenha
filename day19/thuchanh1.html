@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Funny Circle</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;">
+</body>
+<script>
+     function Circle(x, y, radius) {
+    this.x = x;
+    this.y = y;
+    this.radius = radius;
+    this.speedX = (Math.random() - 0.5) * 4; // Tốc độ ngẫu nhiên ngang
+    this.color = getRandomColor();
+  }
+
+  function getRandomHex() {
+    return Math.floor(Math.random() * 255);
+  }
+
+  function getRandomColor() {
+    var red = getRandomHex();
+    var green = getRandomHex();
+    var blue = getRandomHex();
+    return "rgb(" + red + "," + blue + "," + green + ")";
+  }
+
+  function createCircle() {
+    var radius = Math.floor(Math.random() * 80);
+    var x = Math.random() * window.innerWidth;
+    var y = Math.random() * window.innerHeight;
+    return new Circle(x, y, radius);
+  }
+
+  function createMultipleCircles() {
+    var circles = [];
+    for (var i = 0; i < 30; i++) {
+      circles.push(createCircle());
+    }
+    return circles;
+  }
+
+  var canvas = document.getElementById("myCanvas");
+  var ctx = canvas.getContext("2d");
+  var circles = createMultipleCircles();
+
+  function animate() {
+    requestAnimationFrame(animate);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (var i = 0; i < circles.length; i++) {
+      var circle = circles[i];
+
+      ctx.beginPath();
+      ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
+      ctx.fillStyle = circle.color;
+      ctx.fill();
+
+      // Di chuyển vòng tròn ngang
+      circle.x += circle.speedX;
+
+      // Đảm bảo vòng tròn không ra khỏi canvas
+      if (circle.x + circle.radius > canvas.width || circle.x - circle.radius < 0) {
+        circle.speedX = -circle.speedX;
+      }
+    }
+  }
+
+  animate();
+</script>
+
+</html>
