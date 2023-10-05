@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    class Temperature {
+        constructor(celsius) {
+
+            this.celsius = celsius;
+        }
+
+
+        toF() {
+            return (this.celsius * 9 / 5) + 32;
+        }
+
+
+        toKelvin() {
+            return this.celsius + 273.15;
+        }
+    }
+
+
+    let temperature = new Temperature(25);
+
+    let f = temperature.toF();
+    let kelvin = temperature.toKelvin();
+
+    console.log("Nhiệt độ " + temperature.celsius + " Độ F tương ứng là : " + f);
+    console.log("Nhiệt độ " + temperature.celsius + " Độ kelvin tương ứng là : " + kelvin);
+
+</script>
+
+</html>

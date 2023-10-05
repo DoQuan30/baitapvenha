@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="hinhChuNhat" width="500" height="600"></canvas>
+    <div id="chuVi"></div>
+    <div id="dienTich"></div>
+</body>
+<script>
+    class Rectangle {
+        length
+        width
+
+        constructor(length, width) {
+            this.length = length
+            this.width = width
+        }
+        dienTich() {
+            return this.length * this.width
+        }
+        chuVi() {
+            return (this.length + this.width) * 2
+        }
+        ve() {
+            var canvas = document.getElementById('hinhChuNhat')
+            var ctx = canvas.getContext('2d')
+
+
+            ctx.fillStyle = 'blue'
+            ctx.fillRect(0, 0, this.length, this.width)
+        }
+    }
+
+    let Rectangle1 = new Rectangle(100, 50)
+
+    Rectangle1.length = 150
+    Rectangle1.width = 70
+    Rectangle1.ve()
+    document.getElementById("chuVi").innerHTML = ('Diện tích: ' + Rectangle1.dienTich());
+    document.getElementById("dienTich").innerHTML = ('Chu vi: ' + Rectangle1.chuVi());
+</script>
+
+</html>
