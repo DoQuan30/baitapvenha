@@ -1,43 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+
 </body>
 <script>
-    class SwitchButton {
-    status
-    lamp
+    class Lamp {
+        status
 
-    constructor(status) {
-        this.status = status
-    }
+        constructor(status) {
+            this.status = status
+        }
 
-    connectToLamp(lamp) {
-        this.lamp = lamp
-    }
-
-    switchOn() {
-        if (this.lamp === undefined) {
-            console.log("Kết nối với lamp trước!");
-        } else {
-            this.lamp.turnOn()
+        turnOn() {
             this.status = true
         }
-    }
 
-    switchOff() {
-        if (this.lamp === undefined) {
-            console.log("Kết nối với lamp trước!");
-        } else {
-            this.lamp.turnOff()
+        turnOff() {
             this.status = false
         }
     }
-}
+    class SwitchButton {
+        status
+        lamp
+
+        constructor(status) {
+            this.status = status
+        }
+
+        connectToLamp(lamp) {
+            this.lamp = lamp
+
+
+        }
+
+        switchOn() {
+            if (this.lamp === undefined) {
+                console.log("Kết nối với lamp trước!");
+            } else {
+                this.lamp.turnOn()
+                this.status = true
+            }
+        }
+
+        switchOff() {
+            if (this.lamp === undefined) {
+                console.log("Kết nối với lamp trước!");
+            } else {
+                this.lamp.turnOff()
+                this.status = false
+            }
+        }
+    }
+
+    // ... (các lớp và đối tượng đã định nghĩa ở trên)
+
+    let lamp = new Lamp(false);
+    let switchButton = new SwitchButton(false);
+
+    // Kết nối công tắc với bóng đèn
+    switchButton.connectToLamp(lamp);
+
+    // Bật công tắc 10 lần
+    for (let i = 0; i < 10; i++) {
+        console.log(`Lần thứ ${i + 1}:`);
+        switchButton.switchOn();
+        switchButton.switchOff();
+        console.log("-------------------------");
+    }
+
+    // Hiển thị trạng thái cuối cùng của bóng đèn
+    console.log("Trạng thái cuối cùng của bóng đèn:" + lamp.status);
+    lamp.turnOn();
+    console.log("Bóng đèn bật:", lamp.status);
+    lamp.turnOff();
+    console.log("Bóng đèn tắt:", lamp.status);
+
+
 </script>
+
 </html>
