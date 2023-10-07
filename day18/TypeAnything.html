@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Typing Effect in Textarea</title>
+</head>
+<body>
+  <textarea id="textarea" rows="4" cols="50" readonly></textarea>
+
+  <script>
+    const textToDisplay = "Tôi là một Coder tinh ăn lười làm";
+    const textarea = document.getElementById("textarea");
+    let currentIndex = 0;
+
+    function displayText() {
+      if (currentIndex < textToDisplay.length) {
+        const charToShow = textToDisplay.charAt(currentIndex);
+        textarea.value += charToShow;
+        currentIndex++;
+      }
+    }
+
+    document.addEventListener("keydown", (event) => {
+      event.preventDefault(); // Ngăn việc hiển thị ký tự trên textarea
+      displayText();
+    });
+  </script>
+</body>
+</html>

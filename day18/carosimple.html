@@ -1,43 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<head>
+  <title>Caro Game</title>
+  <style>
+    .board {
+      display: grid;
+      grid-template-columns: repeat(3, 50px);
+      grid-gap: 5px;
+    }
 
+    .cell {
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      font-size: 24px;
+      border: 1px solid #000;
+      cursor: pointer;
+    }
+  </style>
+</head>
 <body>
-    <h3>Caro Game Simple</h3>
-    <p id="carogame" />
-    <input type="button" value="Change Value" onclick="changeValue()">
-</body>
-<script>
-    let b = document.getElementById("carogame");
-    
-    let board = [];
-    let data = "";
-    for (let i = 0; i < 5; i++) {
-        board[i] = new Array(0, 0, 0, 0, 0);
-    }
-    
-    for (let i = 0; i < 5; i++) {
-        data += "<br/>";
-        for (let j = 0; j < 5; j++) {
-            data += board[i][j] + "&nbsp;&nbsp;";
-        }
-    }
-    
-    data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"
-    b.innerHTML = data;
+  <h1>Caro Game</h1>
+  <div class="board" id="board"></div>
+  <p id="message"></p>
 
-    function changeValue() {
-    let positionX = prompt("X: ");
-    let positionY = prompt("Y: ");
-    data = "";
-    board[positionX][positionY] = "x";
-    for (let i = 0; i < 5; i++) {
-        data += "<br/>";
-        for (let j = 0; j < 5; j++) {
-            data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
-        }
+  <script>
+    const board = document.getElementById('board');
+    const message = document.getElementById('message');
+    let currentPlayer = 'X';
+    let gameOver = false;
+    const cells = [];
+
+    // Tạo bàn cờ
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        const cell = document.createElement('div');
+        cell.className = 'cell';
+        cell.dataset.row = i;
+        cell.dataset.col = j;
+        cell.addEventListener('click', handleCellClick);
+        cells.push(cell);
+        board.appendChild(cell);
+      }
     }
-    data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"
-    b.innerHTML = "<hr/>" + data;
-}
-    </script>
+
+    // Xử lý khi ô cờ được nhấn
+    function handleCellClick(event) {
+      const cell = event.target;
+      const row = parseInt(cell.dataset.row);
+      const col = parseInt(cell.dataset.col);
+
+      if (!gameOver && !cell.textContent) {
+        cell.textContent = currentPlayer;
+        if (checkWin(row, col)) {
+          message.textContent = `Player ${currentPlayer} wins!`;
+          gameOver = true;
+        } else {
+          currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        }
+      }
+    }
+
+    // Kiểm tra người chiến thắng
+    function checkWin(row, col) {
+      const directions = [
+        [-1, 0], [1, 0], [0, -1], [0, 1],
+        [-1, -1], [1, 1], [-1, 1], [1, -1]
+      ];
+
+      for (const [dx, dy] of directions) {
+        let count = 0;
+        let r = row + dx;
+        let c = col + dy;
+
+        while (r >= 0 && r < 3 && c >= 0 && c < 3 && cells[r * 3 + c].textContent === currentPlayer) {
+          count++;
+          r += dx;
+          c += dy;
+        }
+
+        r = row - dx;
+        c = col - dy;
+
+        while (r >= 0 && r < 3 && c >= 0 && c < 3 && cells[r * 3 + c].textContent === currentPlayer) {
+          count++;
+          r -= dx;
+          c -= dy;
+        }
+
+        if (count >= 2) {
+          return true;
+        }
+      }
+
+      return false;
+    }
+  </script>
+</body>
 </html>
