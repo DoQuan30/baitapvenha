@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+   class Rat {
+  constructor(name, weight, speed) {
+    this.name = name;
+    this.weight = weight;
+    this.speed = speed;
+    this.isAlive = true;
+  }
+
+  makeSound() {
+    console.log(`${this.name} kêu: chít, chít`);
+  }
+
+  die() {
+    this.isAlive = false;
+    console.log(`${this.name} đã chết.`);
+  }
+}
+
+class Cat {
+  constructor(name, weight, maxSpeed) {
+    this.name = name;
+    this.weight = weight;
+    this.maxSpeed = maxSpeed;
+  }
+
+  makeSound() {
+    console.log(`${this.name} kêu: meo meo`);
+  }
+
+  catchRat(rat) {
+    if (this.maxSpeed > rat.speed) {
+      console.log(`${this.name} đã bắt được ${rat.name}.`);
+      return true;
+    } else {
+      console.log(`${this.name} không thể bắt ${rat.name} vì tốc độ quá chậm.`);
+      return false;
+    }
+  }
+
+  eatRat(rat) {
+    if (rat.isAlive) {
+      console.log(`${this.name} đã ăn ${rat.name}.`);
+      this.weight += rat.weight;
+      rat.die();
+    } else {
+      console.log(`${rat.name} đã chết.`);
+    }
+  }
+}
+
+// Tạo đối tượng chuột và mèo
+const jerry = new Rat("Jerry", 0.2, 5);
+const tom = new Cat("Tom", 5, 10);
+
+// Mô phỏng quá trình mèo bắt và ăn chuột
+tom.makeSound(); // Mèo kêu: meo meo
+jerry.makeSound(); // Chuột kêu: chít, chít
+
+if (tom.catchRat(jerry)) {
+  tom.eatRat(jerry); // Mèo đã bắt được chuột và ăn chuột
+}
+
+console.log(`Khối lượng của ${tom.name} sau khi ăn: ${tom.weight}`);
+
+</script>
+</html>

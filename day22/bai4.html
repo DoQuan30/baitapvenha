@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class Remote {
+    constructor(code) {
+        this.code = code
+    }
+
+    // Phương thức điều khiển chuyển kênh của TiVi
+    changeChannel(tv, channel) {
+        tv.setChannel(channel);
+    }
+
+    // Phương thức điều khiển âm lượng của TiVi
+    changeVolume(tv, volumeChange) {
+        tv.changeVolume(volumeChange);
+    }
+}
+
+
+
+
+class TiVi {
+    constructor() {
+        this.channel = 1; 
+        this.volume = 50; 
+        this.showOnOff = false
+    }
+
+    
+    changeChannel(channel) {
+        if (this.powerOn) {
+            this.currentChannel = channel;
+            console.log(`Đã chuyển đến kênh ${channel}`);
+        } else {
+            console.log('Vui lòng bật TV trước.');
+        }
+    }
+
+    
+   changeVolume(volumeChange) {
+        if (this.powerOnOff) {
+            this.currentVolume += volumeChange;
+            console.log("Âm lượng hiện tại:" + this.volume);
+        } else {
+            console.log("Vui lòng bật TV trước. ");
+        }
+    }
+
+   
+    turnOn() {
+        this.powerOnOff = true;
+        console.log('TV đã được bật.');
+    }
+
+   
+    turnOff() {
+        this.powerOn = false;
+        console.log('TV đã được tắt.');
+    }
+}
+const myTV = new TiVi();
+const remoteControl = new Remote("1234"); 
+
+myTV.turnOn(); 
+myTV.changeChannel(7); 
+remoteControl.changeChannel(myTV, 3);
+myTV.changeVolume(2); // Tăng âm lượng lên 2 đơn vị
+remoteControl.adjustVolume(myTV, -1); // Giảm âm lượng xuống 1 đơn vị
+myTV.turnOff(); // Tắt TV
+
+
+
+</script>
+</html>

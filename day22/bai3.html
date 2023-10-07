@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class SwitchButton {
+    status
+    lamp
+
+    constructor(status) {
+        this.status = status
+    }
+
+    connectToLamp(lamp) {
+        this.lamp = lamp
+    }
+
+    switchOn() {
+        if (this.lamp === undefined) {
+            console.log("Kết nối với lamp trước!");
+        } else {
+            this.lamp.turnOn()
+            this.status = true
+        }
+    }
+
+    switchOff() {
+        if (this.lamp === undefined) {
+            console.log("Kết nối với lamp trước!");
+        } else {
+            this.lamp.turnOff()
+            this.status = false
+        }
+    }
+}
+</script>
+</html>
