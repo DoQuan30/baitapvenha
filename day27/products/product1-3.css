@@ -1,0 +1,59 @@
+ /* CSS để tạo phần đen */
+ .black-section {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    display: flex; /* Hiển thị hai cột theo chiều ngang */
+    height: 20em;
+}
+
+/* CSS cho cột 1 */
+.column {
+    flex: 1; /* Cột sẽ tự động co giãn để đầy trọn phần đen */
+    padding: 15px;
+}
+
+/* CSS cho tiêu đề cột */
+.column h2 {
+    font-size: 15px;
+}
+
+/* CSS cho danh sách mục */
+.column ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* CSS cho mục trong danh sách */
+.column li {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.logo {
+    width: 50px;
+    height: 40px;
+    margin-left: 0px; /* Khoảng cách giữa các hình ảnh */
+}
+ /* CSS cho dòng chữ ở góc bên trái phía dưới màn hình */
+ .bottom-left-text {
+    font-size: 14px;
+    position: absolute;
+    bottom: 15;
+    left: 20px; /* Khoảng cách từ cạnh trái của phần đen */
+    margin-top: 272px;
+}
+
+/* CSS cho đề mục ở góc bên phải phía dưới màn hình */
+.bottom-right-menu {
+    font-size: 14px;
+    position: absolute;
+    bottom: 15;
+    right: 20px; /* Khoảng cách từ cạnh phải của phần đen */
+    display: flex;
+    margin-top: 272px;
+}
+
+/* CSS cho mục đề mục */
+.bottom-right-menu-item {
+    margin-left: 10px;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pick {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    transition: color 0.3s ease; /* Hiệu ứng màu cho "Choose Size" */
+}
+
+.sizes span {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background-color: #ccc;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Hiệu ứng màu khi hover */
+}
+
+.sizes span:hover {
+    background-color: #ff0000; /* Đổi màu khi hover (mã màu đỏ) */
+}
+
+.sizes span.focus {
+    background-color: #ff0000; /* Màu cho kích thước được chọn */
+    color: #fff; /* Màu chữ cho kích thước được chọn */
+}
+
+.sizes span.focus {
+    background-color: #ff0000; /* Màu cho kích thước được chọn */
+    color: #fff; /* Màu chữ cho kích thước được chọn */
+}
+
+    </style>
+</head>
+<body>
+    <div>
+        <p class="pick">Choose Size</p>
+        <div class="sizes">
+            <span onclick="focusSize(this)">5</span>
+            <span onclick="focusSize(this)">6</span>
+            <span onclick="focusSize(this)">7</span>
+            <span class="focus" onclick="focusSize(this)">8</span>
+            <span onclick="focusSize(this)">9</span>
+            <span onclick="focusSize(this)">10</span>
+            <span onclick="focusSize(this)">11</span>
+            <span onclick="focusSize(this)">12</span>
+        </div>
+    </div>
+<script>
+    function focusSize(span) {
+    // Loại bỏ lớp "focus" từ tất cả các span
+    var allSizes = document.querySelectorAll('.sizes span');
+    allSizes.forEach(function (size) {
+        size.classList.remove('focus');
+    });
+
+    // Thêm lớp "focus" vào span được tập trung
+    span.classList.add('focus');
+}
+
+</script>    
+</body>
+</html>

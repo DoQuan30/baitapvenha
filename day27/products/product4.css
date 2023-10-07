@@ -1,0 +1,302 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
+
+:root {
+   --white: #f1f0f0;
+   --light: #901717;
+   --tan:   #a21c1c;
+   --pink: #881313;
+   --rose: #aa1d1d;
+   --drak: #4e4e4e;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    width: 85em;
+    background-color: var(--white);
+    box-shadow: 5px 5px 15px rgba(165, 73, 73, 0.5);
+    border-radius: 10px;
+    padding: 1em;
+}
+
+p {
+    font-size: 1.5em;
+    color: var(--rose);
+    letter-spacing: 1px;
+}
+
+.images-and-sizes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    & img {
+        width: 40em;
+    }
+    
+    & .slideshow-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 2em;
+    
+        & span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--light);
+        }
+    
+        & .focus {
+            background: var(--rose);
+        }
+    }
+
+    & .pick {
+            text-transform: uppercase ;
+       
+        }
+    
+    & .sizes {
+        display: flex;
+        justify-content: flex-start;
+        gap: 0.8em;
+
+        & span {
+            border: 1px solid var(--light);
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2px;
+            font-size: 0.7em;
+        
+            &:hover {
+                background: var(--rose);
+                color: var(--white);
+                transition: all 0.4s ease-in-out;
+            }
+        }       
+    
+        & .focus {
+            background: var(--rose);
+        }
+    }
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    & p {
+        text-transform: uppercase;
+    }
+
+    & h1 {
+        font-size: 4em;
+        color: var(--drak);
+        margin-top: -5px;
+    }
+
+    & h2 {
+        color: var(--tan);
+        margin-top: -5px;
+        font-size: 4em;
+    }
+
+    & .description {
+        text-transform: none;
+        letter-spacing: 0;
+        margin-bottom: 17px;
+        color: var(--drak);
+        font-size: 1.5em;
+        line-height: 1.6em;
+        text-align: justify;
+    }
+
+    & button {
+        background: #d11e1e;
+        padding: 10px;
+        display: inline-block;
+        outline: 0;
+        border: 0;
+        border-radius: 2px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--white);
+        cursor: pointer;
+
+        &:hover{
+            background: var(--rose);
+            transition: all 0.4s ease-in-out;
+        }
+
+        & .add {
+            width: 80%;
+        }
+    
+        & .like {
+            width: 40%;
+        }
+    }    
+}
+
+/* Thiết lập header và menu điều hướng */
+header {
+    background-color: #570606;
+    color: rgb(180, 22, 22);
+    padding: 10px 0;
+    text-align: right; /* Dịch dòng header sang bên phải */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Xóa margin mặc định */
+    
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+
+}
+/* Add vertical bars to the navigation links in the <nav> element */
+nav ul li::after {
+    content: "|"; /* Thêm dấu | giữa các mục menu */
+    margin-left: 10px; /* Khoảng cách giữa dấu | và mục menu */
+    color: black;
+}
+
+/* Hide the vertical bar after the last navigation link in the <nav> element */
+nav ul li:last-child::after {
+    content: ""; /* Ẩn dấu | sau mục menu cuối cùng */
+}
+
+/* Remove the vertical bars from the <ul> element */
+.header-content ul li::after {
+    content: ""; /* Xoá dấu | sau mục menu */
+}
+
+
+nav a {
+    text-decoration: none;
+    color: rgb(13, 13, 13);
+    font-weight: bold;
+}
+
+/* next */
+/* ... */
+
+/* Thiết lập header và menu điều hướng */
+header {
+    background-color: #ffffff;
+    color: white;
+    padding: 10px 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #dd7c75;
+}
+
+.header-left img {
+    max-width: 50px;
+    margin-left: 60px;
+    
+    
+}
+
+.header-left p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-right input[type="text"] {
+    padding: 5px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.header-right button {
+    background-color: #ffffff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.header-right button:hover {
+    background-color: #ffffff;
+}
+
+/* ... */
+
+.content {
+   display: flex;
+    justify-content: center;
+    width: 84em;
+ height: 30px;
+    
+}
+
+/* thay đổi hình ảnh */
+.slideshow-buttons span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #333;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .slideshow-buttons span.active {
+    background-color: #3a5ddd;
+  }
+
+  /* test thử xem sao  */
+
+  /* CSS để tạo hình thang cơ cho gợi ý */
+.autocomplete {
+    position: relative;
+    display: inline-block;
+}
+
+#suggestions {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-top: none;
+    background-color: #3197ce;
+    z-index: 1;
+}
+
+#suggestions.visible {
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
